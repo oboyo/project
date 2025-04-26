@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FOURSQUARE</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "cambria", sans-serif;
+            color: white;
+
+        }
+
+        .w3-bar {
+            background-color: #022c43;
+
+        }
+
+        .w3-bar a,
+        .w3-bar-block a,
+        button {
+
+            font-weight: 600;
+            font-size: 17px;
+            text-transform: uppercase;
+            border-right: 1px solid rgb(255, 255, 159) !important
+        }
+
+        .w3-bar a:hover,
+        button:hover {
+            background-color: inherit !important;
+            color: rgb(255, 255, 159) !important
+        }
+
+        .mySlides,
+        .mySlides2 {
+            display: none
+        }
+
+        .w3-left,
+        .w3-right,
+        .w3-badge {
+            cursor: pointer
+        }
+
+        .w3-badge {
+            height: 13px;
+            width: 13px;
+            padding: 0
+        }
+
+
+
+        .caption-container h2 {
+            font-size: 46px;
+            font-weight: 900;
+            font-size: 6vw;
+            line-height: normal;
+            text-shadow: 1px 1px 13px rgba(0, 0, 0, .25);
+        }
+
+
+        .caption-container p {
+            color: #fff;
+            margin: 15px 0;
+            font-size: 16pt;
+            line-height: normal;
+            text-shadow: 1px 1px 13px rgba(0, 0, 0, .75);
+            font-weight: 900;
+
+        }
+
+
+        .caption-container a {
+
+            text-decoration: none;
+            font-weight: 9 00;
+            /* margin: 10px 0 0 auto; */
+            /* float: right; */
+            font-size: 17px;
+            background-color: #022c43 !important;
+            text-shadow: 1px 1px 13px rgba(0, 0, 0, .75);
+
+        }
+
+        .caption-container a:hover {
+            color: #022c43 !important;
+            background-color: #fff !importnant;
+        }
+
+        /* The actual popup */
+        .upcoming {
+
+            position: relative;
+            background-color: #c5c5c5 !important
+        }
+
+        /* Popup arrow */
+        .upcoming::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 5%;
+            margin-left: -5px;
+            border-width: 15px;
+            border-style: solid;
+            border-color: #c5c5c5 transparent transparent transparent;
+        }
+
+        .myYellow {
+            background-color: rgb(255, 255, 159) !important;
+        }
+
+        .myTextYellow {
+            color: rgb(255, 255, 159) !important;
+        }
+
+        .myBlue {
+            background-color: #022c43 !important;
+        }
+
+        .myTextBlue {
+            color: #022c43 !important;
+        }
+
+        .myOtherYellow {
+            background-color: rgb(247 148 28) !important;
+        }
+
+        .myTextOtherYellow {
+            color: rgb(247 148 28) !important;
+        }
+
+        .instagram {
+            background: #f09433;
+            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="w3-top">
+        <div class="w3-bar w3-myBlue">
+            <a href="#" class="w3-bar-item w3-button" style="width: 20%">LOGO</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small" style="width: 20%">Link 1</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small" style="width: 20%">Link 2</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small" style="width: 20%">Link 2</a>
+            <div class="w3-dropdown-hover w3-hide-small" style="width: 20%">
+                <button class="w3-button">Dropdown <i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                    <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
+                    <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
+                    <a href="#" class="w3-bar-item w3-button w3-mobile">Link 3</a>
+                </div>
+            </div>
+            <a href="javascript:void(0)" class="w3-bar-item myTextYellow w3-button w3-right w3-hide-large w3-hide-medium" onclick="myFunction()" style="border: 1px solid rgb(255,255,159)">&#9776;</a>
+        </div>
+        <div id="demo" class="w3-bar-block myBlue w3-hide w3-hide-large w3-hide-medium">
+            <a href="#" class="w3-bar-item w3-button">Link 1</a>
+            <a href="#" class="w3-bar-item w3-button">Link 2</a>
+            <a href="#" class="w3-bar-item w3-button">Link 3</a>
+        </div>
+    </div>
+    <!--
+<div class="w3-bar w3-red">
+<a href="#" class="w3-bar-item w3-button">Home</a>
+<a href="#" class="w3-bar-item w3-button w3-hide-small">Link 1</a>
+<a href="#" class="w3-bar-item w3-button w3-hide-small">Link 2</a>
+<a href="#" class="w3-bar-item w3-button w3-hide-small">Link 3</a>
+<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="myFunction()">&#9776;</a>
+</div>
+
+<div id="demo" class="w3-bar-block w3-red w3-hide w3-hide-large w3-hide-medium">
+<a href="#" class="w3-bar-item w3-button">Link 1</a>
+<a href="#" class="w3-bar-item w3-button">Link 2</a>
+<a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+-->
+
+    <div class="w3-display-container" style="margin-top: 40px">
+        <div class="w3-display-container mySlides">
+            <img src="images/img_coffee.jpg" style="width:100%;">
+            <div class="w3-display-middle caption-container">
+                <h2>LOREM</h2>
+                <p class="w3-hide-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, enim!</p>
+                <div class="w3-cente">
+                    <a href="#" class="w3-button w3-black w3-padding-large" style="background-color: rgb(247 148 28) !important">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="w3-display-container mySlides">
+            <img src="images/img_workbench.jpg" style="width:100%;">
+            <div class="w3-display-middle caption-container">
+                <h2>LOREM</h2>
+                <p class="w3-hide-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, enim!</p>
+                <div class="w3-cente">
+                    <a href="#" class="w3-button w3-black w3-padding-large" style="background-color: rgb(247 148 28) !important">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="w3-display-container mySlides">
+            <img src="images/sound.jpg" style="width:100%;">
+            <div class="w3-display-middle caption-container" style="margin-top: 20px">
+                <h2>LOREM</h2>
+                <p class="w3-hide-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, enim!</p>
+                <div class="w3-cente" style="background-color: ">
+                    <a href="#" class="w3-button w3-black w3-padding-large" style="background-color: rgb(247 148 28) !important">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="w3-button w3-display-left" onclick="plusDivs(-1)" style=" background-color: #022c43 !important;color: rgb(255,255,159);border: 2px solid rgb(255,255,159)">&#10094;</button>
+        <button class="w3-button w3-display-right" onclick="plusDivs(1)" style=" background-color: #022c43 !important;color: rgb(255,255,159);border: 2px solid rgb(255,255,159)">&#10095;</button>
+        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+        </div>
+
+    </div>
+    <div class="w3-row-padding w3-light-gray" style="margin-top: 32px">
+        <div class="w3-col m6">
+            <img src="images/bayo.jpg" alt="" style="width: 100%">
+        </div>
+        <div class="w3-col m6">
+            <h4 style="color: #022c43;font-weight: bold">WELCOME TO</h4>
+            <span class="w3-xlarge">Foursquare International</span>
+            <div style="position: relative">
+                <span class="myOtherYellow" style="width: 40px;height: 3.5px;;position: absolute;top: 7px;"></span>
+                <span class="myOtherYellow" style="width: 20px;height: 3.55px;position: absolute;top: 7px;left: 50px;"></span>
+                <span class="myOtherYellow" style="width: 30px;height:3.55px;position: absolute;top: 7px;left: 80px;"></span>
+            </div><br>
+            <div class="w3-text-gray">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est aliquam quisquam iure, expedita reprehenderit facere voluptatibus ea libero voluptas, omnis facilis itaque sequi, atque, esse. Cum culpa, praesentium maiores facilis!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae porro, illum libero enim, blanditiis cupiditate accusantium necessitatibus obcaecati, deleniti cum magni cumque. Dolorem maiores laboriosam minus consequatur aliquam, perferendis corporis.</p>
+            </div>
+            <div class="w3-row-padding w3-section">
+                <div class="w3-col m6 w3-large">
+                    <span><i class="fa fa-graduation-cap w3-xxlarge w3-margin-right" style="color: #022c43"></i>Great Learning</span>
+
+                </div>
+                <div class="w3-col m6 w3-large">
+                    <span><i class="fa fa-music w3-xxlarge w3-margin-right" style="color: #022c43"></i>Standard Facilities</span>
+
+                </div>
+            </div>
+            <div class="w3-row-padding w3-section">
+                <div class="w3-col m6 w3-large">
+                    <span><i class="fa fa-globe w3-xxlarge w3-margin-right" style="color: #022c43"></i>Skilled teachers</span>
+
+                </div>
+                <div class="w3-col m6 w3-large">
+                    <span><i class="fa fa-phone w3-xxlarge w3-margin-right" style="color: #022c43"></i>Tech Driven</span>
+
+                </div>
+            </div>
+            <div class="w3-row-padding w3-section">
+                <div class="w3-col m6 w3-large w3-text-gray">
+                    <p><b>Chief Mrs. H.O Ishola </b>(Principal)</p>
+                </div>
+                <div class="w3-col m6 w3-large">
+                    <p>Any Question?</p>
+                    <p><i class="fa fa-phone"></i> +234(0)805119832</p>
+                    <p><i class="fa fa-envelope"></i> hello world@helloworld.com</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="w3-content w3-border w3-section" style="max-width : 1000px">
+        <div class="w3-container upcoming">
+            <h4><b>UPCOMING EVENTS</b></h4>
+        </div>
+        <div class="w3-row w3-section">
+            <div class="w3-col m3 w3-container">
+                <div class="w3-card w3-display-container">
+                    <img src="images/notebook.jpg" alt="" style="width: 100%;height: 150px">
+                    <div class="w3-padding-small w3-display-topleft" style="background-color: rgb(247 148 28);">
+                        <span class="w3-large"><b>26</b></span><br>
+                        <span class="w3-small">Sep 2019</span>
+                    </div>
+                    <div class="w3-container w3-section" style="color: #022c43">
+                        <span class="w3-large"><b>Lorem</b></span><br>
+                        <span class="w3-large"><b>Lorem Ipsium</b></span>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col m3 w3-container">
+                <div class="w3-card w3-display-container">
+                    <img src="images/notebook.jpg" alt="" style="width: 100%;height: 150px">
+                    <div class="w3-padding-small w3-display-topleft" style="background-color: rgb(247 148 28);">
+                        <span class="w3-large"><b>26</b></span><br>
+                        <span class="w3-small">Sep 2019</span>
+                    </div>
+                    <div class="w3-container w3-section" style="color: #022c43 ">
+                        <span class="w3-large"><b>Lorem</b></span><br>
+                        <span class="w3-large"><b>Lorem Ipsium</b></span>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col m3 w3-container">
+                <div class="w3-card w3-display-container">
+                    <img src="images/notebook.jpg" alt="" style="width: 100%;height: 150px">
+                    <div class="w3-padding-small w3-display-topleft" style="background-color: rgb(247 148 28);">
+                        <span class="w3-large"><b>26</b></span><br>
+                        <span class="w3-small">Sep 2019</span>
+
+                    </div>
+                    <div class="w3-container w3-section" style="color: #022c43 ">
+                        <span class="w3-large"><b>Lorem</b></span><br>
+                        <span class="w3-large"><b>Lorem Ipsium</b></span>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col m3 w3-container">
+                <div class="w3-card w3-display-container">
+                    <img src="images/notebook.jpg" alt="" style="width: 100%;height: 150px">
+                    <div class="w3-padding-small w3-display-topleft" style="background-color: rgb(247 148 28);">
+                        <span class="w3-large"><b>26</b></span><br>
+                        <span class="w3-small">Sep 2019</span>
+                    </div>
+                    <div class="w3-container w3-section" style="color: #022c43 ">
+                        <span class="w3-large"><b>Lorem</b></span><br>
+                        <span class="w3-large"><b>Lorem Ipsium</b></span>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <button class="w3-button w3-margin-right w3-padding-small w3-large w3-right" style="background-color:  rgb(247 148 28);">View Calender </button>
+        </div>
+        <div class="w3-row-padding w3-section">
+            <div class="w3-col m6">
+                <div class="w3-container upcoming" style="width: 100%">
+                    <h4><b>OPERATION DETERMINATION</b></h4>
+
+                </div>
+                <div class="w3-row-padding w3-border">
+                    <div class="w3-col m6">
+                        <div class="w3-card w3-section">
+                            <img src="images/notebook.jpg" alt="" width="100%">
+                        </div>
+                        <div class="w3-card w3-section" style="margin-top: -10px !important">
+                            <img src="images/notebook.jpg" alt="" width="100%">
+                        </div>
+                        <div class="w3-card w3-section" style="margin-top: -10px !important">
+                            <img src="images/notebook.jpg" alt="" width="100%">
+                        </div>
+                    </div>
+                    <div class="w3-col m6">
+                        <div class="w3-card w3-section">
+                            <img src="images/notebook.jpg" alt="" width="100%">
+                        </div>
+                        <div class="w3-card w3-section" style="margin-top: -10px !important">
+                            <img src="images/notebook.jpg" alt="" width="100%">
+                        </div>
+
+                        <div class="w3-card w3-section" style="margin-top: -10px !important">
+                            <img src="images/notebook.jpg" alt="" width="100%">
+                        </div>
+                    </div>
+                    <button class="w3-button w3-padding-small w3-large w3-right" style="background-color:  rgb(247 148 28);margin: 0 8px 12px 0px">Instagram </button>
+                </div>
+
+            </div>
+            <div class="w3-col m6">
+                <div class="w3-container upcoming" style="width: 100%">
+                    <h4><b>NEWS ROOM</b></h4>
+                </div>
+
+                <div class="w3-border w3-container" style="color: #022c43 ">
+                    <hr style="border: 1px solid;color: lightgray">
+                    <span class="w3-large"><b>Asynchronous Instruction through 9/23</b></span><br>
+                    <span style="color: lightgray;"><i class="fa fa-clock-o w3-margin-right"></i><b> September 21, 2022</b></span>
+                    <hr style="border: 1px solid;color: lightgray">
+                    <span class="w3-large"><b>Asynchronous Instruction through 9/23</b></span><br>
+                    <span style="color: lightgray;"><i class="fa fa-clock-o w3-margin-right"></i><b> September 21, 2022</b></span>
+                    <hr style="border: 1px solid;color: lightgray">
+                    <span class="w3-large"><b>Asynchronous Instruction through 9/23</b></span><br>
+                    <span style="color: lightgray;"><i class="fa fa-clock-o w3-margin-right"></i><b> September 21, 2022</b></span><br>
+                    <hr style="border: 1px solid;color: lightgray">
+                    <span class="w3-large"><b>Asynchronous Instruction through 9/23</b></span>
+                    <br>
+                    <hr style="border: 1px solid;color: lightgray">
+                    <span class="w3-large"><b>Asynchronous Instruction through 9/23</b></span><br>
+                    <span style="color: lightgray;"><i class="fa fa-clock-o w3-margin-right"></i><b> September 21, 2022</b></span>
+                    <button class="w3-button w3-padding-small w3-large w3-right" style="background-color:  rgb(247 148 28);margin: 58px -8px 10px 0px;color: #fff">More News </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="w3-row-padding" style="padding-top: 64px;">
+            <div class="w3-col m6 w3-margin-bottom" style="color: black">
+                <div class="w3-border" style="position: relative">
+                    <div class="w3-container upcoming">
+                        <h4><b>WHERE INNOVATION MEETS DETERMINATION</b></h4>
+                    </div>
+                    <div class="w3-section w3-container">
+                        <span class="myTextblue w3-large"><b>SINCE 1993</b></span>
+
+                    </div>
+                    <div>
+                        <ul>
+                            <li style="margin-bottom: 4px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, beatae.</li>
+                            <li style="margin-bottom: 4px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, beatae.</li>
+                            <li style="margin-bottom: 4px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, beatae.</li>
+                            <li style="margin-bottom: 4px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, beatae.</li>
+                            <li style="margin-bottom: 4px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, beatae.</li>
+                        </ul>
+                    </div>
+                    <p></p>
+                    <button class="w3-right w3-button w3-padding-small w3-large" style="background-color:  rgb(247 148 28);color: #fff;margin: 0 8px 0 0;letter-spacing: 3px">More</button><br><br>
+                    <p></p>
+
+
+                </div>
+            </div>
+            <div class="w3-col m6" style="color: black">
+                <div class="w3-border" style="position: relative">
+                    <div class="w3-container upcoming" sty>
+                        <p><b>The numbers says it all</b></p>
+                        <h4><b>WHY FOURSQUARE SCHOOLS</b></h4>
+                    </div>
+                    <div class="w3-container" style="margin-top: 24px">
+                        <span><b>PASS TO UNIVERSITY</b></span>
+                        <div class="w3-light-grey">
+
+                            <div class="w3-grey w3-center" style="height:24px;width:95%">95%</div>
+                        </div><br>
+                        <span><b>SATISFIED PARENTS</b></span>
+                        <div class="w3-light-grey">
+                            <div class="w3-grey w3-center" style="height:24px;width:85%">85%</div>
+                        </div><br>
+                        <span><b>LIFE ENROLLMENTS</b></span>
+                        <div class="w3-light-grey">
+                            <div class="w3-grey" style="height:24px;width:75%">75%</div>
+                        </div><br>
+                        <span><b>SATISFIED PARENTS</b></span>
+                        <div class="w3-light-grey">
+                            <div class="w3-grey w3-center" style="height:24px;width:85%">85%</div>
+                        </div><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-display-container" style="margin-top: 40px">
+        <img src="images/notebook.jpg" alt="" width="100%" style="opacity: 0.5">
+        <div class="w3-display-topmiddle caption-container">
+            <h2>TESTIMONIAL</h2>
+        </div>
+
+        <div class="w3-display-middle w3-center caption-container mySlides2 myBlue w3-block w3-padding-large w3-opacity">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, enim!</p>
+            <div class="w3-center">
+                <span><b>Dr Saheed Abolade</b></span>
+            </div>
+        </div>
+        <div class="w3-display-middle w3-center caption-container mySlides2 myBlue w3-block w3-padding-large w3-opacity">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, enim!</p>
+            <div class="w3-center">
+                <span><b>Prof Layide Samuel</b></span>
+            </div>
+        </div>
+
+        <div class="w3-display-middle w3-center caption-container mySlides2 myBlue w3-block w3-padding-large w3-opacity">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, enim!</p>
+            <div class="w3-center">
+                <span><b>Engnr Seun Kuti</b></span>
+            </div>
+        </div>
+
+
+        <button class="w3-button myBlue myTextYellow w3-display-bottomleft" onclick="plusDivsT(-1)" style="margin-bottom: 20px;border: 2px solid rgb(255,255,159)">&#10094;</button>
+        <button class="w3-button myBlue myTextYellow w3-display-bottomright" onclick="plusDivsT(1)" style="margin-bottom: 20px;border: 2px solid rgb(255,255,159)">&#10095;</button>
+
+        <div class="w3-center w3-container w3-section w3-large w3-display-bottommiddle" style="width:100%">
+            <img class="demo2" src="images/livingroom.jpg" alt="" style="width: 75px;height: 75px;border-radius: 50%;" onclick="currentDivT(1)">
+            <img class="demo2" src="images/house2.jpg" alt="" style="width: 75px;height: 75px;border-radius: 50%;" onclick="currentDivT(2)">
+            <img class="demo2" src="images/livingroom.jpg" alt="" style="width: 75px;height: 75px;border-radius: 50%;" onclick="currentDivT(3)">
+            <!-- <span class="w3-badge demo2 w3-border w3-transparent w3-hover-white" onclick="currentDivT(1)"></span>
+<span class="w3-badge demo2 w3-border w3-transparent w3-hover-white" onclick="currentDivT(2)"></span>
+<span class="w3-badge demo2 w3-border w3-transparent w3-hover-white" onclick="currentDivT(3)"></span> -->
+        </div>
+
+    </div>
+    <div class="w3-row-padding myBlue">
+        <div class="w3-col m4 w3-container">
+            <h2 style="position: relative">Affiliation</h2>
+            <ul class="w3-ul">
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+            </ul>
+        </div>
+        <div class="w3-col m4 w3-container">
+            <h2>Useful links</h2>
+            <ul class="w3-ul">
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+                <li class="w3-large"><i class="fa fa-plus myTextYellow"></i> Lorem Psium</li>
+            </ul>
+        </div>
+        <div class="w3-col m4 w3-container">
+            <h2>Get in touch</h2>
+
+            <ul class="w3-ul">
+                <li class="w3-large"><i class="fa fa-map-marker myTextYellow"></i> PLOT 126, BESIDE MUDA LAWAL STADIUM, ASERO, ABEOKUTA, OGUN STATE</li>
+                <li class="w3-large"><i class="fa fa-phone myTextYellow"></i> +234(0)8051119832</li>
+                <li class="w3-large"><i class="fa fa-envelope myTextYellow"></i> mail@mail.com</li>
+                <li class="w3-xlarge">
+                    <span class="w3-tag w3-circle" style="background-color: #4267B2"><i class="fa fa-facebook"></i> </span>
+                    <span class="w3-tag w3-circle" style="background-color: #1DA1F2"><i class="fa fa-twitter"></i> </span>
+                    <span class="w3-tag w3-circle instagram"><i class="fa fa-instagram"></i> </span>
+                    <span class="w3-tag w3-circle w3-green"><i class="fa fa-whatsapp"></i> </span>
+                </li>
+            </ul>
+
+
+        </div>
+
+    </div>
+    <footer class="w3-black w3-center w3-padding w3-large">
+        <p><span class="w3-text-gray">Copyright &copy; 2024</span> Foursquare International <span class="w3-text-gray">Designed by</span> FISS TECH TEAM</p>
+    </footer>
+    <script>
+        // first slideshow
+        var slideIndex = 1;
+        var timer = null;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            clearTimeout(timer);
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            clearTimeout(timer);
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n == undefined) {
+                n = ++slideIndex;
+            }
+            if (n > x.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" myOtherYellow", "");
+
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " myOtherYellow";
+            timer = setTimeout(showDivs, 5000)
+        }
+        // second slideshow
+        var slideIndexT = 1;
+        var timerT = null;
+        showDivsT(slideIndexT);
+
+        function plusDivsT(n) {
+            clearTimeout(timerT);
+            showDivsT(slideIndexT += n);
+        }
+
+        function currentDivT(n) {
+            clearTimeout(timerT);
+            showDivsT(slideIndexT = n);
+        }
+
+        function showDivsT(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides2");
+            var dots = document.getElementsByClassName("demo2");
+            if (n == undefined) {
+                n = ++slideIndexT;
+            }
+            if (n > x.length) {
+                slideIndexT = 1
+            }
+            if (n < 1) {
+                slideIndexT = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" myOtherYellow", "");
+                dots[i].style.border = "";
+            }
+            x[slideIndexT - 1].style.display = "block";
+            dots[slideIndexT - 1].className += " myOtherYellow";
+            dots[slideIndexT - 1].style.border += "4px solid #022c43"
+            timerT = setTimeout(showDivsT, 5000)
+        }
+
+        function myFunction() {
+            var x = document.getElementById("demo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</body></html>
